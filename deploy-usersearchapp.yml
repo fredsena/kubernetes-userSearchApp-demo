@@ -1,0 +1,30 @@
+# Simple deployment used to deploy and manage the app in fredsena/usersearchapp:v1.0
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usersearchapp-deploy
+  labels:
+    app: usersearchapp
+spec:
+  selector:
+    matchLabels:
+      app: usersearchapp
+  replicas: 3
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: usersearchapp
+    spec: 
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: usersearchapp-pod
+        image: fredsena/usersearchapp:v1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4200

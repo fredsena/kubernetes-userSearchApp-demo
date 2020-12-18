@@ -1,0 +1,30 @@
+# Simple deployment used to deploy and manage the app in fredsena/jsonserver:v1.0
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jsonserver-deploy
+  labels:
+    app: jsonserver
+spec:
+  selector:
+    matchLabels:
+      app: jsonserver
+  replicas: 3
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: jsonserver
+    spec: 
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: jsonserver-pod
+        image: fredsena/jsonserver:v1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
