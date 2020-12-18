@@ -40,6 +40,7 @@ Run `deploy-jsonserver-loadbalancer-service.yml`
 
 and then test the application [http://localhost:4200/](http://localhost:4200/)
 
+![alt text](https://github.com/fredsena/kubernetes-userSearchApp-demo/blob/master/images/Kubernetes_UserSearchApp_Demo.png?raw=true)
 
 ## Further help
 
