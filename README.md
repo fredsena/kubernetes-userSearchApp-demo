@@ -34,9 +34,9 @@ Run `kubectl apply -f deploy-usersearchapp.yml`
 
 Run `kubectl apply -f deploy-jsonserver.yml`
 
-Run `deploy-usersearchapp-loadbalancer-service.yml`
+Run `kubectl apply -f deploy-usersearchapp-loadbalancer-service.yml`
 
-Run `deploy-jsonserver-loadbalancer-service.yml`
+Run `kubectl apply -f deploy-jsonserver-loadbalancer-service.yml`
 
 and then test the application [http://localhost:4200/](http://localhost:4200/)
 
